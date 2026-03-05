@@ -2,32 +2,42 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
-  <meta name="author" content="BlueStarWorks" />
-  <meta name="theme-color" content="#0b1220" />
-
-  <!-- 트위터 카드 -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="BlueStarWorks | Unity · 3D · Interactive Studio" />
-  <meta name="twitter:description" content="Unity 개발, 3D 모델링, AR/VR, 실시간 인터랙티브 콘텐츠 제작." />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+
   <title>BlueStarWorks | Unity · 3D · Interactive Studio</title>
   <meta name="description" content="BlueStarWorks는 Unity 개발, 3D 모델링, AR/VR 및 실시간 인터랙티브 콘텐츠를 제작합니다." />
   <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://bluestarworks.github.io/" />
+  <meta name="author" content="BlueStarWorks" />
+  <meta name="theme-color" content="#0b1220" />
 
+  <!-- ✅ 본인 GitHub Pages 주소로 맞추기 -->
+  <link rel="canonical" href="https://doohwanjeong.github.io/" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="BlueStarWorks | Unity · 3D · Interactive Studio" />
   <meta property="og:description" content="Unity 개발, 3D 모델링, AR/VR, 실시간 인터랙티브 콘텐츠 제작." />
-  <meta property="og:url" content="https://bluestarworks.github.io/" />
+  <meta property="og:url" content="https://doohwanjeong.github.io/" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="BlueStarWorks | Unity · 3D · Interactive Studio" />
+  <meta name="twitter:description" content="Unity 개발, 3D 모델링, AR/VR, 실시간 인터랙티브 콘텐츠 제작." />
+  <!-- (선택) og 썸네일 이미지 -->
+  <!-- <meta property="og:image" content="https://doohwanjeong.github.io/assets/og.jpg" />
+  <meta name="twitter:image" content="https://doohwanjeong.github.io/assets/og.jpg" /> -->
 
   <style>
     :root{
-      --bg:#0b1220; --panel:#0f1a30; --text:#e8eefc; --muted:#a9b5d6;
-      --line:rgba(255,255,255,.10); --brand:#7aa7ff; --brand2:#9b7bff;
+      --bg:#0b1220;
+      --text:#e8eefc;
+      --muted:#a9b5d6;
+      --line:rgba(255,255,255,.10);
+      --brand:#7aa7ff;
+      --brand2:#9b7bff;
       --shadow: 0 14px 40px rgba(0,0,0,.35);
       --r: 18px;
       --max: 1100px;
     }
+
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
@@ -38,35 +48,39 @@
         radial-gradient(900px 600px at 100% 10%, rgba(155,123,255,.18), transparent 50%),
         var(--bg);
       color:var(--text);
-      letter-spacing: -0.2px;
+      letter-spacing:-0.2px;
     }
-    a{color:inherit; text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 22px}
+
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+    .muted{color:var(--muted)}
+    .anchor{scroll-margin-top:90px}
+
+    /* Header */
     header{
-      position:sticky; top:0; z-index:50;
+      position:sticky;top:0;z-index:50;
       backdrop-filter: blur(12px);
       background: linear-gradient(to bottom, rgba(11,18,32,.88), rgba(11,18,32,.55));
       border-bottom:1px solid var(--line);
     }
-    .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:12px; padding:14px 0;
-    }
-    .brand{display:flex; align-items:center; gap:10px; font-weight:900}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:900;position:relative}
     .logo{
-      width:34px; height:34px; border-radius:10px;
+      width:34px;height:34px;border-radius:10px;flex:0 0 auto;
       background: linear-gradient(135deg, var(--brand), var(--brand2));
       box-shadow: 0 10px 22px rgba(122,167,255,.18);
-      flex:0 0 auto;
     }
-    .menu{
-      display:flex; gap:6px; align-items:center; flex-wrap:wrap; justify-content:flex-end;
+    .brandLogo{height:22px;width:auto;display:block;opacity:.98}
+    .srOnly{
+      position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+      clip:rect(0,0,0,0);white-space:nowrap;border:0;
     }
+    .menu{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
     .menu a{
-      padding:10px 12px; border-radius:12px; color:var(--muted);
+      padding:10px 12px;border-radius:12px;color:var(--muted);
       border:1px solid transparent;
     }
-    .menu a:hover{color:var(--text); border-color:var(--line); background:rgba(255,255,255,.03)}
+    .menu a:hover{color:var(--text);border-color:var(--line);background:rgba(255,255,255,.03)}
     .menu a.primary{
       color:var(--text);
       border-color: rgba(122,167,255,.45);
@@ -76,6 +90,8 @@
 
     main{padding:26px 0 40px}
     section{padding:42px 0}
+
+    /* Base cards / grids */
     .card{
       background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
       border:1px solid var(--line);
@@ -83,6 +99,19 @@
       box-shadow: var(--shadow);
       padding:22px;
     }
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+    .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+    @media (max-width:920px){ .grid3,.grid2{grid-template-columns:1fr} }
+
+    .item{
+      padding:14px;border-radius:16px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+    .item b{display:block;margin-bottom:6px}
+    .hr{height:1px;background:var(--line);margin:14px 0}
+
+    /* Hero */
     .hero{
       display:grid;
       grid-template-columns: 1.15fr .85fr;
@@ -90,229 +119,159 @@
       align-items:stretch;
       padding-top:10px;
     }
-    .thumbImg{
-      width:100%;
-      height:120px;
-      object-fit:cover;
-      border-radius:14px;
-      border:1px solid var(--line);
-      background: rgba(0,0,0,.20);
-      display:block;
-    }
-    .brandLogo{
-      height:22px;       /* 로고 세로 크기 */
-      width:auto;
-      display:block;
-      opacity:0.98;
-    }
-
-    .srOnly{
-      position:absolute;
-      width:1px;height:1px;
-      padding:0;margin:-1px;
-      overflow:hidden;
-      clip:rect(0,0,0,0);
-      white-space:nowrap;
-      border:0;
-    }
-
-    .modal{
-      position:fixed;
-      inset:0;
-      display:none;
-      z-index:9999;
-    }
-    .modal.open{ display:block; }
-
-    .modalBackdrop{
-      position:absolute;
-      inset:0;
-      background: rgba(0,0,0,.68);
-      backdrop-filter: blur(6px);
-    }
-
-    .modalPanel{
-      position:relative;
-      max-width: min(980px, calc(100vw - 28px));
-      max-height: calc(100vh - 28px);
-      margin: 14px auto;
-      border:1px solid var(--line);
-      border-radius: 18px;
-      background: rgba(15, 26, 48, .72);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
-
-    .modalClose{
-      position:absolute;
-      top:10px;
-      right:10px;
-      width:38px;
-      height:38px;
-      border-radius:12px;
-      border:1px solid var(--line);
-      background: rgba(0,0,0,.25);
-      color: var(--text);
-      font-weight:900;
-      cursor:pointer;
-    }
-
-    .modalImg{
-      width:100%;
-      height:auto;
-      display:block;
-      max-height: calc(100vh - 110px);
-      object-fit: contain;
-      background: rgba(0,0,0,.25);
-      }
-
-    .modalCap{
-      padding:10px 14px 14px;
-      color: var(--muted);
-      font-size:13px;
-      border-top:1px solid var(--line);
-    }
-
-
-    
-    @media (max-width: 920px){ .hero{grid-template-columns:1fr} }
+    @media (max-width:920px){ .hero{grid-template-columns:1fr} }
 
     .badge{
-      display:inline-flex; gap:8px; align-items:center;
-      padding:8px 12px; border-radius:999px;
+      display:inline-flex;gap:8px;align-items:center;
+      padding:8px 12px;border-radius:999px;
       border:1px solid rgba(122,167,255,.35);
       background: rgba(122,167,255,.10);
-      font-weight:750; font-size:13px;
+      font-weight:750;font-size:13px;
     }
-    .badge span{color:var(--muted); font-weight:650}
-    h1{margin:14px 0 10px; font-size:46px; line-height:1.08}
+    .badge span{color:var(--muted);font-weight:650}
+    h1{margin:14px 0 10px;font-size:46px;line-height:1.08}
     @media (max-width:520px){ h1{font-size:34px} }
-    .lead{color:var(--muted); font-size:16px; line-height:1.75; margin:0 0 16px}
-    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    .lead{color:var(--muted);font-size:16px;line-height:1.75;margin:0 0 16px}
+
+    .ctaRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
     .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-
-      height:40px;           /* 버튼 높이 고정 */
-      padding:0 14px;
-
-      border-radius:14px;
+      display:inline-flex;align-items:center;justify-content:center;
+      height:40px;padding:0 14px;border-radius:14px;
       border:1px solid var(--line);
       background: rgba(255,255,255,.04);
-
       color:var(--text);
-      font-weight:800;
-      font-size:14px;
+      font-weight:800;font-size:14px;
       cursor:pointer;
       text-decoration:none;
     }
-
-    .portfolioLinks{
-      margin-top:10px;
-      font-size:14px;
-      font-weight:600;
-    }
-
-    .portfolioLinks a{
-      color:var(--brand);
-      text-decoration:none;
-      padding:4px 6px;
-    }
-
-    .portfolioLinks a:hover{
-      text-decoration:underline;
-    }
-
-    .portfolioLinks .divider{
-      margin:0 4px;
-      color:var(--muted);
-    }
-
-    
     .btn:hover{background:rgba(255,255,255,.07)}
     .btn:active{transform: translateY(1px)}
     .btn.primary{
       border-color: rgba(122,167,255,.45);
       background: linear-gradient(135deg, rgba(122,167,255,.25), rgba(155,123,255,.18));
     }
-    .grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; margin-top:14px}
-    .grid2{display:grid; grid-template-columns: repeat(2, 1fr); gap:12px; margin-top:14px}
-    @media (max-width: 920px){ .grid3,.grid2{grid-template-columns:1fr} }
 
-    .item{
-      padding:14px; border-radius:16px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-    }
-    .item b{display:block; margin-bottom:6px}
-    .muted{color:var(--muted)}
-    .hr{height:1px; background:var(--line); margin:14px 0}
-
-    .thumb{
-      height:120px; border-radius:14px; border:1px solid var(--line);
-      background:
-        radial-gradient(600px 220px at 30% 30%, rgba(122,167,255,.22), transparent 60%),
-        radial-gradient(480px 220px at 90% 10%, rgba(155,123,255,.18), transparent 55%),
-        rgba(0,0,0,.20);
-      margin-bottom:10px;
-    }
-    .tagRow{display:flex; gap:6px; flex-wrap:wrap; margin-top:8px}
-    .tag{font-size:12px;padding:6px 8px;border-radius:999px;border:1px solid var(--line);background:rgba(0,0,0,.15);color:var(--muted)}
-    .proj a{display:inline-flex; margin-top:10px}
-
-    .contactGrid{display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:14px}
-    @media(max-width:920px){.contactGrid{grid-template-columns:1fr}}
-    input,textarea{
-      width:100%; padding:12px; border-radius:14px; border:1px solid var(--line);
-      background:rgba(0,0,0,.20); color:var(--text); outline:none;
-    }
-    textarea{min-height:150px; resize:vertical}
-    .mini{font-size:12px; color:var(--muted)}
-    footer{
-      margin-top:24px; padding:18px 0 30px;
-      border-top:1px solid var(--line);
-      color:var(--muted);
-    }
-    .foot{
-      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
-      align-items:center;
-    }
-    .pill{
-      padding:8px 10px; border-radius:999px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      font-size:12px;
-    }
+    /* ✅ About background: 더 크게 + 내부 분배 */
     .aboutBg{
       position:relative;
-      min-height:400px;
+      padding:90px 0;        /* 위아래 공간 크게 */
+      min-height:620px;      /* 이미지가 크면 더 크게 보이게 */
       display:flex;
       align-items:center;
+
       background-image:url("assets/company-bg.jpg");
       background-size:cover;
       background-position:center;
       background-repeat:no-repeat;
-}
+    }
+    .aboutBg::before{
+      content:"";
+      position:absolute;inset:0;
+      background:rgba(0,0,0,.55);
+    }
+    .aboutBg .card{
+      position:relative;z-index:1;
+      width:100%;
+      padding:40px; /* 텍스트 여백 넉넉하게 */
+      background:rgba(10,15,25,.65);
+      backdrop-filter: blur(6px);
+    }
+    .aboutGrid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+      margin-top:16px;
+    }
+    @media (max-width:920px){
+      .aboutBg{padding:70px 0; min-height:560px}
+      .aboutBg .card{padding:26px}
+      .aboutGrid{grid-template-columns:1fr}
+    }
 
-/* 이미지 위에 어두운 오버레이 */
-.aboutBg::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0.55);
-}
+    /* Portfolio thumbs + links */
+    .thumbImg{
+      width:100%;height:120px;object-fit:cover;display:block;
+      border-radius:14px;border:1px solid var(--line);
+      background: rgba(0,0,0,.20);
+      margin-bottom:10px;
+    }
+    .tagRow{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+    .tag{
+      font-size:12px;padding:6px 8px;border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.15);
+      color:var(--muted);
+    }
+    .portfolioLinks{margin-top:10px;font-size:14px;font-weight:650}
+    .portfolioLinks a{color:var(--brand);padding:4px 6px}
+    .portfolioLinks a:hover{text-decoration:underline}
+    .portfolioLinks .divider{margin:0 4px;color:var(--muted)}
 
-/* 내부 콘텐츠 위로 올리기 */
-.aboutBg .card{
-  position:relative;
-  z-index:1;
-  background:rgba(10,15,25,0.65);
-  backdrop-filter:blur(6px);
-}
+    /* Contact */
+    .contactGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+    @media(max-width:920px){.contactGrid{grid-template-columns:1fr}}
+    textarea{
+      width:100%;
+      padding:12px;border-radius:14px;border:1px solid var(--line);
+      background:rgba(0,0,0,.20);color:var(--text);outline:none;
+      min-height:150px;resize:vertical;
+    }
+    .mini{font-size:12px;color:var(--muted)}
 
-    /* anchor offset for sticky header */
-    .anchor{scroll-margin-top:90px}
+    /* Footer */
+    footer{
+      margin-top:24px;padding:18px 0 30px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+    }
+    .foot{
+      display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center;
+    }
+    .pill{
+      padding:8px 10px;border-radius:999px;border:1px solid var(--line);
+      background: rgba(255,255,255,.03);font-size:12px;
+    }
+
+    /* Modal */
+    .modal{position:fixed;inset:0;display:none;z-index:9999}
+    .modal.open{display:block}
+    .modalBackdrop{
+      position:absolute;inset:0;
+      background: rgba(0,0,0,.68);
+      backdrop-filter: blur(6px);
+    }
+    .modalPanel{
+      position:relative;
+      max-width:min(980px, calc(100vw - 28px));
+      max-height:calc(100vh - 28px);
+      margin:14px auto;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background: rgba(15, 26, 48, .72);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .modalClose{
+      position:absolute;top:10px;right:10px;
+      width:38px;height:38px;border-radius:12px;
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.25);
+      color: var(--text);
+      font-weight:900;
+      cursor:pointer;
+    }
+    .modalImg{
+      width:100%;height:auto;display:block;
+      max-height: calc(100vh - 110px);
+      object-fit: contain;
+      background: rgba(0,0,0,.25);
+    }
+    .modalCap{
+      padding:10px 14px 14px;
+      color: var(--muted);
+      font-size:13px;
+      border-top:1px solid var(--line);
+    }
   </style>
 </head>
 
@@ -322,11 +281,8 @@
     <nav class="nav">
       <a class="brand" href="#top" aria-label="BlueStarWorks Home">
         <div class="logo" aria-hidden="true"></div>
-        <!-- ✅ 텍스트 대신 로고 이미지 -->
         <img class="brandLogo" src="assets/brand-logo.png" alt="BlueStarWorks" />
-        <!-- 접근성/SEO용(화면에 안 보이게)--> 
         <span class="srOnly">BlueStarWorks</span>
-        <!-- <div>BlueStarWorks</div>-->
       </a>
 
       <div class="menu">
@@ -336,9 +292,7 @@
         <a href="#process">프로세스</a>
         <a href="#contact">문의</a>
 
-        <!-- ✅ 최상단 메일 보내기 버튼 -->
         <a class="primary" id="mailTopBtn" href="#">메일 보내기</a>
-        <!-- ✅ 추가 -->        
         <a class="primary" id="kakaoTopBtn" href="#" target="_blank" rel="noopener">카카오톡</a>
       </div>
     </nav>
@@ -402,20 +356,23 @@
   <section id="about" class="anchor aboutBg">
     <div class="card">
       <h2 style="margin:0 0 10px;font-size:22px">회사 소개</h2>
-      <p class="lead">
-        BlueStarWorks는 실시간 렌더링과 인터랙션 설계를 기반으로,
-        제품/브랜드/전시/교육 등 다양한 분야의 3D 경험을 제작합니다.
-        “보여주는 것”에서 끝나지 않고 “작동하는 것”까지 책임집니다.
-      </p>
 
-      <div class="grid2">
-        <div class="item">
-          <b>우리가 추구하는 가치</b>
-          <div class="muted">몰입감 · 성능 · 유지보수 가능한 구조</div>
-        </div>
-        <div class="item">
-          <b>협업 방식</b>
-          <div class="muted">기획서가 없어도 OK — 목표/레퍼런스 중심으로 설계부터 정리</div>
+      <div class="aboutGrid">
+        <p class="lead" style="margin:0">
+          BlueStarWorks는 실시간 렌더링과 인터랙션 설계를 기반으로,
+          제품/브랜드/전시/교육 등 다양한 분야의 3D 경험을 제작합니다.
+          “보여주는 것”에서 끝나지 않고 “작동하는 것”까지 책임집니다.
+        </p>
+
+        <div class="grid2" style="margin-top:0">
+          <div class="item">
+            <b>우리가 추구하는 가치</b>
+            <div class="muted">몰입감 · 성능 · 유지보수 가능한 구조</div>
+          </div>
+          <div class="item">
+            <b>협업 방식</b>
+            <div class="muted">기획서가 없어도 OK — 목표/레퍼런스 중심으로 설계부터 정리</div>
+          </div>
         </div>
       </div>
     </div>
@@ -455,46 +412,45 @@
       <p class="lead">아래는 샘플입니다. 실제 프로젝트명/설명/링크로 바꿔 넣기만 하면 됩니다.</p>
 
       <div class="grid3">
-        <div class="item proj">
-          <img class="thumbImg" src="assets/p1.jpg" alt="프로젝트 A 썸네일" loading="lazy" /> <!--<div class="thumb" aria-hidden="true"></div>-->
+        <div class="item">
+          <img class="thumbImg" src="assets/p1.jpg" alt="프로젝트 A 썸네일" loading="lazy" />
           <b>프로젝트 A (전시 인터랙티브)</b>
           <div class="muted">관람객 동작에 반응하는 실시간 3D 경험. 모바일/PC 대응.</div>
           <div class="tagRow">
             <span class="tag">Unity</span><span class="tag">URP</span><span class="tag">Optimization</span>
           </div>
-          <!--<a class="btn" href="#" onclick="alert('여기에 영상/페이지 링크를 넣으세요!'); return false;">보기</a>-->
           <div class="portfolioLinks">
-            <a href="#" onclick="openImageModal('assets/p1-large.jpg','프로젝트 A'); return false;"> 📷이미지보기 </a>
+            <a href="#" onclick="openImageModal('assets/p1-large.jpg','프로젝트 A'); return false;">📷 이미지보기</a>
             <span class="divider">|</span>
-            <a href="https://www.youtube.com/watch?v=VIDEO_ID" target="_blank" rel="noopener"> ▶영상보기 </a>
+            <a href="https://www.youtube.com/watch?v=VIDEO_ID" target="_blank" rel="noopener">▶ 영상보기</a>
           </div>
         </div>
 
-        <div class="item proj">
-          <img class="thumbImg" src="assets/p2.jpg" alt="프로젝트 A 썸네일" loading="lazy" />
+        <div class="item">
+          <img class="thumbImg" src="assets/p2.jpg" alt="프로젝트 B 썸네일" loading="lazy" />
           <b>프로젝트 B (AR 제품 체험)</b>
           <div class="muted">ARFoundation 기반 제품 시각화 및 상호작용 UI.</div>
           <div class="tagRow">
             <span class="tag">ARFoundation</span><span class="tag">Mobile</span><span class="tag">UX</span>
           </div>
-           <div class="portfolioLinks">
-            <a href="#" onclick="openImageModal('assets/p2-large.jpg','프로젝트 A'); return false;"> 📷이미지보기 </a>
+          <div class="portfolioLinks">
+            <a href="#" onclick="openImageModal('assets/p2-large.jpg','프로젝트 B'); return false;">📷 이미지보기</a>
             <span class="divider">|</span>
-            <a href="https://www.youtube.com/watch?v=VIDEO_ID" target="_blank" rel="noopener"> ▶영상보기 </a>
+            <a href="https://www.youtube.com/watch?v=VIDEO_ID" target="_blank" rel="noopener">▶ 영상보기</a>
           </div>
         </div>
 
-        <div class="item proj">
-          <img class="thumbImg" src="assets/p3.jpg" alt="프로젝트 A 썸네일" loading="lazy" />
+        <div class="item">
+          <img class="thumbImg" src="assets/p3.jpg" alt="프로젝트 C 썸네일" loading="lazy" />
           <b>프로젝트 C (실시간 캐릭터)</b>
           <div class="muted">캐릭터 셰이딩/애니메이션 파이프라인 구축 및 최적화.</div>
           <div class="tagRow">
             <span class="tag">3D</span><span class="tag">Rig</span><span class="tag">LookDev</span>
           </div>
-           <div class="portfolioLinks">
-            <a href="#" onclick="openImageModal('assets/p3-large.jpg','프로젝트 A'); return false;"> 📷이미지보기 </a>
+          <div class="portfolioLinks">
+            <a href="#" onclick="openImageModal('assets/p3-large.jpg','프로젝트 C'); return false;">📷 이미지보기</a>
             <span class="divider">|</span>
-            <a href="https://www.youtube.com/watch?v=VIDEO_ID" target="_blank" rel="noopener"> ▶영상보기 </a>
+            <a href="https://www.youtube.com/watch?v=VIDEO_ID" target="_blank" rel="noopener">▶ 영상보기</a>
           </div>
         </div>
       </div>
@@ -533,6 +489,7 @@
           <b>이메일</b>
           <div class="muted" id="emailText" style="margin-top:6px">worksbluestar@email.com</div>
           <div class="muted" id="phoneText" style="margin-top:6px">전화: 010-8242-3258</div>
+
           <div class="ctaRow" style="margin-top:12px">
             <a class="btn primary" id="mailBtn" href="#">메일 보내기</a>
             <button class="btn" id="copyBtn" type="button">이메일 복사</button>
@@ -557,16 +514,15 @@
   <footer>
     <div class="foot">
       <div>© <span id="y"></span> BlueStarWorks. All rights reserved.</div>
-      <div class="muted" style="font-size:12px;"> 주소: 대구광역시 북구 칠곡중앙대로 180, 2층 206호(BlueStarWorks)</div>
+      <div class="muted" style="font-size:12px;">주소: 대구광역시 북구 칠곡중앙대로 180, 2층 206호(BlueStarWorks)</div>
       <div class="pill">Built with GitHub Pages</div>
     </div>
   </footer>
 </main>
 
-<!-- ✅ Image Modal -->
+<!-- Image Modal -->
 <div id="imgModal" class="modal" aria-hidden="true" role="dialog" aria-label="이미지 미리보기">
   <div class="modalBackdrop" onclick="closeImageModal()"></div>
-
   <div class="modalPanel" role="document">
     <button class="modalClose" type="button" onclick="closeImageModal()" aria-label="닫기">✕</button>
     <img id="modalImg" class="modalImg" src="" alt="" />
@@ -575,9 +531,10 @@
 </div>
 
 <script>
-  // ✅ 1) 여기 이메일만 바꾸면, 상단 버튼/문의 버튼/복사 기능 전부 자동 적용됨
-  const EMAIL = "worksbluestar@email.com"; // <- 여기에 실제 이메일 입력
-  const KAKAO_OPENCHAT_URL = "https://open.kakao.com/o/xxxxxxx";  // <- 오픈채팅 링크
+  const EMAIL = "worksbluestar@email.com";
+  const PHONE = "010-8242-3258";
+  const KAKAO_OPENCHAT_URL = "https://open.kakao.com/o/xxxxxxx"; // 바꿔주세요
+
   const SUBJECT = "[BlueStarWorks] 프로젝트 문의";
   const BODY =
 `1) 프로젝트 목적:
@@ -589,13 +546,14 @@
 
   const mailto = `mailto:${EMAIL}?subject=${encodeURIComponent(SUBJECT)}&body=${encodeURIComponent(BODY)}`;
 
-  // 카카오톡 버튼
-  const kakaoBtn = document.getElementById("kakaoTopBtn");
-  kakaoBtn.setAttribute("href", KAKAO_OPENCHAT_URL);
-
   document.getElementById("emailText").textContent = EMAIL;
+  document.getElementById("phoneText").textContent = `전화: ${PHONE}`;
+
   document.getElementById("mailBtn").setAttribute("href", mailto);
   document.getElementById("mailTopBtn").setAttribute("href", mailto);
+
+  const kakaoBtn = document.getElementById("kakaoTopBtn");
+  kakaoBtn.setAttribute("href", KAKAO_OPENCHAT_URL);
 
   document.getElementById("y").textContent = new Date().getFullYear();
 
@@ -608,6 +566,7 @@
       msg.textContent = "⚠️ 복사가 막혔어요. 이메일을 길게 눌러 복사하세요.";
     }
   });
+
   function openImageModal(src, caption){
     const modal = document.getElementById("imgModal");
     const img = document.getElementById("modalImg");
@@ -619,8 +578,6 @@
 
     modal.classList.add("open");
     modal.setAttribute("aria-hidden","false");
-
-    // ESC로 닫기
     document.addEventListener("keydown", onEscClose);
   }
 
@@ -640,7 +597,6 @@
   function onEscClose(e){
     if(e.key === "Escape") closeImageModal();
   }
-  
 </script>
 </body>
 </html>
