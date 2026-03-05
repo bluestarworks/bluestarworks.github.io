@@ -83,6 +83,16 @@
       align-items:stretch;
       padding-top:10px;
     }
+    .thumbImg{
+      width:100%;
+      height:120px;
+      object-fit:cover;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.20);
+      display:block;
+    }
+    
     @media (max-width: 920px){ .hero{grid-template-columns:1fr} }
 
     .badge{
@@ -185,6 +195,8 @@
 
         <!-- ✅ 최상단 메일 보내기 버튼 -->
         <a class="primary" id="mailTopBtn" href="#">메일 보내기</a>
+        <!-- ✅ 추가 -->        
+        <a class="primary" id="kakaoTopBtn" href="#" target="_blank" rel="noopener">카카오톡</a>
       </div>
     </nav>
   </div>
@@ -301,7 +313,7 @@
 
       <div class="grid3">
         <div class="item proj">
-          <div class="thumb" aria-hidden="true"></div>
+          <img class="thumbImg" src="assets/p1.jpg" alt="프로젝트 A 썸네일" loading="lazy" /> // <div class="thumb" aria-hidden="true"></div>
           <b>프로젝트 A (전시 인터랙티브)</b>
           <div class="muted">관람객 동작에 반응하는 실시간 3D 경험. 모바일/PC 대응.</div>
           <div class="tagRow">
@@ -311,7 +323,7 @@
         </div>
 
         <div class="item proj">
-          <div class="thumb" aria-hidden="true"></div>
+          <img class="thumbImg" src="assets/p2.jpg" alt="프로젝트 A 썸네일" loading="lazy" />//<div class="thumb" aria-hidden="true"></div>
           <b>프로젝트 B (AR 제품 체험)</b>
           <div class="muted">ARFoundation 기반 제품 시각화 및 상호작용 UI.</div>
           <div class="tagRow">
@@ -321,7 +333,7 @@
         </div>
 
         <div class="item proj">
-          <div class="thumb" aria-hidden="true"></div>
+          <img class="thumbImg" src="assets/p3.jpg" alt="프로젝트 A 썸네일" loading="lazy" /> //<div class="thumb" aria-hidden="true"></div>
           <b>프로젝트 C (실시간 캐릭터)</b>
           <div class="muted">캐릭터 셰이딩/애니메이션 파이프라인 구축 및 최적화.</div>
           <div class="tagRow">
@@ -364,7 +376,7 @@
         <div class="item">
           <b>이메일</b>
           <div class="muted" id="emailText" style="margin-top:6px">worksbluestar@email.com</div>
-
+          <div class="muted" id="phoneText" style="margin-top:6px">전화: 010-8242-3258</div>
           <div class="ctaRow" style="margin-top:12px">
             <a class="btn primary" id="mailBtn" href="#">메일 보내기</a>
             <button class="btn" id="copyBtn" type="button">이메일 복사</button>
@@ -389,6 +401,7 @@
   <footer>
     <div class="foot">
       <div>© <span id="y"></span> BlueStarWorks. All rights reserved.</div>
+      <div class="muted" style="font-size:12px;"> 주소: 대구광역시 북구 칠곡중앙대로 180, 2층 206호층 (BlueStarWorks)</div>
       <div class="pill">Built with GitHub Pages</div>
     </div>
   </footer>
@@ -397,6 +410,7 @@
 <script>
   // ✅ 1) 여기 이메일만 바꾸면, 상단 버튼/문의 버튼/복사 기능 전부 자동 적용됨
   const EMAIL = "worksbluestar@email.com"; // <- 여기에 실제 이메일 입력
+  const KAKAO_OPENCHAT_URL = "https://open.kakao.com/o/xxxxxxx";  // <- 오픈채팅 링크
   const SUBJECT = "[BlueStarWorks] 프로젝트 문의";
   const BODY =
 `1) 프로젝트 목적:
@@ -407,6 +421,10 @@
 6) 전달 자료(기획서/리소스/기타):`;
 
   const mailto = `mailto:${EMAIL}?subject=${encodeURIComponent(SUBJECT)}&body=${encodeURIComponent(BODY)}`;
+
+  // 카카오톡 버튼
+  const kakaoBtn = document.getElementById("kakaoTopBtn");
+  kakaoBtn.setAttribute("href", KAKAO_OPENCHAT_URL);
 
   document.getElementById("emailText").textContent = EMAIL;
   document.getElementById("mailBtn").setAttribute("href", mailto);
