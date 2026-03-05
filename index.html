@@ -188,6 +188,18 @@
       .aboutGrid{grid-template-columns:1fr}
     }
 
+    /* 회사소개 하단 박스 2개 */
+    .aboutBottom{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      margin-top:16px;
+    }
+
+@media (max-width:920px){
+  .aboutBottom{ grid-template-columns: 1fr; }
+}
+
     /* Portfolio thumbs + links */
     .thumbImg{
       width:100%;height:120px;object-fit:cover;display:block;
