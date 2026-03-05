@@ -207,10 +207,29 @@
       cursor:pointer;
       text-decoration:none;
     }
-    button.btn{
-      appearance:none;
-      border:none;
+
+    .portfolioLinks{
+      margin-top:10px;
+      font-size:14px;
+      font-weight:600;
     }
+
+    .portfolioLinks a{
+      color:var(--brand);
+      text-decoration:none;
+      padding:4px 6px;
+    }
+
+    .portfolioLinks a:hover{
+      text-decoration:underline;
+    }
+
+    .portfolioLinks .divider{
+      margin:0 4px;
+      color:var(--muted);
+    }
+
+    
     .btn:hover{background:rgba(255,255,255,.07)}
     .btn:active{transform: translateY(1px)}
     .btn.primary{
@@ -418,12 +437,10 @@
             <span class="tag">Unity</span><span class="tag">URP</span><span class="tag">Optimization</span>
           </div>
           <!--<a class="btn" href="#" onclick="alert('여기에 영상/페이지 링크를 넣으세요!'); return false;">보기</a>-->
-          <div class="ctaRow">
-            <!-- ✅ 이미지 더보기(모달) -->
-            <button class="btn" type="button"
-              onclick="openImageModal('assets/p1-large.jpg','프로젝트 A 큰 이미지')"> 더보기</button>
-            <!-- ✅ 영상 보기(유튜브/비메오 등 링크) -->
-            <a class="btn" href="https://www.youtube.com/watch?v=VIDEO_ID" target="_blank" rel="noopener">영상보기 </a>
+          <div class="portfolioLinks">
+            <a href="#" onclick="openImageModal('assets/p1-large.jpg','프로젝트 A'); return false;"> 📷이미지보기 </a>
+            <span class="divider">|</span>
+            <a href="https://www.youtube.com/watch?v=VIDEO_ID" target="_blank" rel="noopener"> ▶영상보기 </a>
           </div>
         </div>
 
