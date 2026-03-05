@@ -1,64 +1,428 @@
-<!DOCTYPE html>
-<html>
-
+<!doctype html>
+<html lang="ko">
 <head>
-<meta charset="UTF-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BlueStarWorks | Unity · 3D · Interactive Studio</title>
+  <meta name="description" content="BlueStarWorks는 Unity 개발, 3D 모델링, AR/VR 및 실시간 인터랙티브 콘텐츠를 제작합니다." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://bluestarworks.github.io/" />
 
-<title>BlueStarWorks</title>
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="BlueStarWorks | Unity · 3D · Interactive Studio" />
+  <meta property="og:description" content="Unity 개발, 3D 모델링, AR/VR, 실시간 인터랙티브 콘텐츠 제작." />
+  <meta property="og:url" content="https://bluestarworks.github.io/" />
 
-<meta name="description" content="Unity 개발, 3D 모델링, 인터랙티브 콘텐츠 제작">
+  <style>
+    :root{
+      --bg:#0b1220; --panel:#0f1a30; --text:#e8eefc; --muted:#a9b5d6;
+      --line:rgba(255,255,255,.10); --brand:#7aa7ff; --brand2:#9b7bff;
+      --shadow: 0 14px 40px rgba(0,0,0,.35);
+      --r: 18px;
+      --max: 1100px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", Arial;
+      background:
+        radial-gradient(1200px 700px at 20% -10%, rgba(122,167,255,.22), transparent 55%),
+        radial-gradient(900px 600px at 100% 10%, rgba(155,123,255,.18), transparent 50%),
+        var(--bg);
+      color:var(--text);
+      letter-spacing: -0.2px;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 22px}
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(12px);
+      background: linear-gradient(to bottom, rgba(11,18,32,.88), rgba(11,18,32,.55));
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; padding:14px 0;
+    }
+    .brand{display:flex; align-items:center; gap:10px; font-weight:900}
+    .logo{
+      width:34px; height:34px; border-radius:10px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: 0 10px 22px rgba(122,167,255,.18);
+      flex:0 0 auto;
+    }
+    .menu{
+      display:flex; gap:6px; align-items:center; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .menu a{
+      padding:10px 12px; border-radius:12px; color:var(--muted);
+      border:1px solid transparent;
+    }
+    .menu a:hover{color:var(--text); border-color:var(--line); background:rgba(255,255,255,.03)}
+    .menu a.primary{
+      color:var(--text);
+      border-color: rgba(122,167,255,.45);
+      background: linear-gradient(135deg, rgba(122,167,255,.22), rgba(155,123,255,.16));
+      font-weight:900;
+    }
 
-<style>
+    main{padding:26px 0 40px}
+    section{padding:42px 0}
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      border-radius: var(--r);
+      box-shadow: var(--shadow);
+      padding:22px;
+    }
+    .hero{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:14px;
+      align-items:stretch;
+      padding-top:10px;
+    }
+    @media (max-width: 920px){ .hero{grid-template-columns:1fr} }
 
-body{
-font-family:Arial;
-background:#0f172a;
-color:white;
-text-align:center;
-padding:40px;
-}
+    .badge{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:8px 12px; border-radius:999px;
+      border:1px solid rgba(122,167,255,.35);
+      background: rgba(122,167,255,.10);
+      font-weight:750; font-size:13px;
+    }
+    .badge span{color:var(--muted); font-weight:650}
+    h1{margin:14px 0 10px; font-size:46px; line-height:1.08}
+    @media (max-width:520px){ h1{font-size:34px} }
+    .lead{color:var(--muted); font-size:16px; line-height:1.75; margin:0 0 16px}
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 14px; border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color:var(--text);
+      font-weight:800;
+      transition: transform .08s ease;
+      cursor:pointer;
+    }
+    .btn:hover{background:rgba(255,255,255,.07)}
+    .btn:active{transform: translateY(1px)}
+    .btn.primary{
+      border-color: rgba(122,167,255,.45);
+      background: linear-gradient(135deg, rgba(122,167,255,.25), rgba(155,123,255,.18));
+    }
+    .grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; margin-top:14px}
+    .grid2{display:grid; grid-template-columns: repeat(2, 1fr); gap:12px; margin-top:14px}
+    @media (max-width: 920px){ .grid3,.grid2{grid-template-columns:1fr} }
 
-h1{
-font-size:48px;
-}
+    .item{
+      padding:14px; border-radius:16px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+    .item b{display:block; margin-bottom:6px}
+    .muted{color:var(--muted)}
+    .hr{height:1px; background:var(--line); margin:14px 0}
 
-.section{
-margin-top:60px;
-}
+    .thumb{
+      height:120px; border-radius:14px; border:1px solid var(--line);
+      background:
+        radial-gradient(600px 220px at 30% 30%, rgba(122,167,255,.22), transparent 60%),
+        radial-gradient(480px 220px at 90% 10%, rgba(155,123,255,.18), transparent 55%),
+        rgba(0,0,0,.20);
+      margin-bottom:10px;
+    }
+    .tagRow{display:flex; gap:6px; flex-wrap:wrap; margin-top:8px}
+    .tag{font-size:12px;padding:6px 8px;border-radius:999px;border:1px solid var(--line);background:rgba(0,0,0,.15);color:var(--muted)}
+    .proj a{display:inline-flex; margin-top:10px}
 
-</style>
+    .contactGrid{display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:14px}
+    @media(max-width:920px){.contactGrid{grid-template-columns:1fr}}
+    input,textarea{
+      width:100%; padding:12px; border-radius:14px; border:1px solid var(--line);
+      background:rgba(0,0,0,.20); color:var(--text); outline:none;
+    }
+    textarea{min-height:150px; resize:vertical}
+    .mini{font-size:12px; color:var(--muted)}
+    footer{
+      margin-top:24px; padding:18px 0 30px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+    }
+    .foot{
+      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      align-items:center;
+    }
+    .pill{
+      padding:8px 10px; border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      font-size:12px;
+    }
 
+    /* anchor offset for sticky header */
+    .anchor{scroll-margin-top:90px}
+  </style>
 </head>
 
 <body>
+<header>
+  <div class="wrap">
+    <nav class="nav">
+      <a class="brand" href="#top" aria-label="BlueStarWorks Home">
+        <div class="logo" aria-hidden="true"></div>
+        <div>BlueStarWorks</div>
+      </a>
 
-<h1>BlueStarWorks</h1>
+      <div class="menu">
+        <a href="#about">소개</a>
+        <a href="#services">서비스</a>
+        <a href="#portfolio">포트폴리오</a>
+        <a href="#process">프로세스</a>
+        <a href="#contact">문의</a>
 
-<p>Unity / 3D / Interactive Content Studio</p>
+        <!-- ✅ 최상단 메일 보내기 버튼 -->
+        <a class="primary" id="mailTopBtn" href="#">메일 보내기</a>
+      </div>
+    </nav>
+  </div>
+</header>
 
-<div class="section">
-<h2>회사소개</h2>
-<p>
-Unity 기반 인터랙티브 콘텐츠와 3D 제작 전문 회사입니다.
-</p>
-</div>
+<main id="top" class="wrap">
+  <!-- HERO -->
+  <section class="anchor">
+    <div class="hero">
+      <div class="card">
+        <div class="badge">Unity · 3D · Interactive <span>Realtime Studio</span></div>
+        <h1>아이디어를<br/>실시간 경험으로 바꿉니다.</h1>
+        <p class="lead">
+          BlueStarWorks는 Unity 기반 인터랙티브 콘텐츠, 3D 제작, AR/VR 경험 설계를 통해
+          “보는 콘텐츠”를 “참여하는 콘텐츠”로 전환합니다.
+        </p>
+        <div class="ctaRow">
+          <a class="btn primary" href="#portfolio">포트폴리오 보기</a>
+          <a class="btn" href="#contact">프로젝트 문의</a>
+          <a class="btn" href="#services">서비스 범위</a>
+        </div>
 
-<div class="section">
-<h2>서비스</h2>
+        <div class="grid3">
+          <div class="item">
+            <b>핵심 역량</b>
+            <div class="muted">Unity 실시간 개발 · 인터랙션</div>
+          </div>
+          <div class="item">
+            <b>제작 범위</b>
+            <div class="muted">3D · AR/VR · WebGL</div>
+          </div>
+          <div class="item">
+            <b>강점</b>
+            <div class="muted">구조 설계 · 최적화</div>
+          </div>
+        </div>
+      </div>
 
-<p>Unity Development</p>
-<p>3D Modeling</p>
-<p>AR / VR Content</p>
+      <aside class="card">
+        <h2 style="margin:0 0 10px;font-size:18px">빠른 소개</h2>
+        <div class="item">
+          <b>어떤 일을 하나요?</b>
+          <div class="muted">게임/앱/전시/브랜드 등 실시간 3D 경험 제작</div>
+        </div>
+        <div class="hr"></div>
+        <div class="item">
+          <b>어떤 방식이 강한가요?</b>
+          <div class="muted">요구사항 → 설계 → 제작 → 빌드/배포까지 End-to-End</div>
+        </div>
+        <div class="hr"></div>
+        <div class="item">
+          <b>원하는 결과물</b>
+          <div class="muted">PC / 모바일 / WebGL / XR까지 확장 가능한 구조</div>
+        </div>
+      </aside>
+    </div>
+  </section>
 
-</div>
+  <!-- ABOUT -->
+  <section id="about" class="anchor">
+    <div class="card">
+      <h2 style="margin:0 0 10px;font-size:22px">회사 소개</h2>
+      <p class="lead">
+        BlueStarWorks는 실시간 렌더링과 인터랙션 설계를 기반으로,
+        제품/브랜드/전시/교육 등 다양한 분야의 3D 경험을 제작합니다.
+        “보여주는 것”에서 끝나지 않고 “작동하는 것”까지 책임집니다.
+      </p>
 
-<div class="section">
-<h2>문의</h2>
+      <div class="grid2">
+        <div class="item">
+          <b>우리가 추구하는 가치</b>
+          <div class="muted">몰입감 · 성능 · 유지보수 가능한 구조</div>
+        </div>
+        <div class="item">
+          <b>협업 방식</b>
+          <div class="muted">기획서가 없어도 OK — 목표/레퍼런스 중심으로 설계부터 정리</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<p>Email : contact@email.com</p>
+  <!-- SERVICES -->
+  <section id="services" class="anchor">
+    <div class="card">
+      <h2 style="margin:0 0 10px;font-size:22px">서비스</h2>
+      <p class="lead">프로젝트 규모에 맞춰 “기획/설계/제작/배포”까지 유연하게 제공합니다.</p>
 
-</div>
+      <div class="grid2">
+        <div class="item">
+          <b>Unity 개발</b>
+          <div class="muted">인터랙션, 시스템 설계, UI/UX 구현, 데이터 연동</div>
+        </div>
+        <div class="item">
+          <b>3D 제작</b>
+          <div class="muted">캐릭터/환경, 룩개발(재질·라이팅), 파이프라인 정리</div>
+        </div>
+        <div class="item">
+          <b>AR / VR / XR</b>
+          <div class="muted">ARFoundation, XR Interaction Toolkit 기반 기능 구축</div>
+        </div>
+        <div class="item">
+          <b>최적화 & 빌드</b>
+          <div class="muted">모바일/WebGL/PC 성능 튜닝, 빌드/배포 지원</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- PORTFOLIO -->
+  <section id="portfolio" class="anchor">
+    <div class="card">
+      <h2 style="margin:0 0 10px;font-size:22px">포트폴리오</h2>
+      <p class="lead">아래는 샘플입니다. 실제 프로젝트명/설명/링크로 바꿔 넣기만 하면 됩니다.</p>
+
+      <div class="grid3">
+        <div class="item proj">
+          <div class="thumb" aria-hidden="true"></div>
+          <b>프로젝트 A (전시 인터랙티브)</b>
+          <div class="muted">관람객 동작에 반응하는 실시간 3D 경험. 모바일/PC 대응.</div>
+          <div class="tagRow">
+            <span class="tag">Unity</span><span class="tag">URP</span><span class="tag">Optimization</span>
+          </div>
+          <a class="btn" href="#" onclick="alert('여기에 영상/페이지 링크를 넣으세요!'); return false;">보기</a>
+        </div>
+
+        <div class="item proj">
+          <div class="thumb" aria-hidden="true"></div>
+          <b>프로젝트 B (AR 제품 체험)</b>
+          <div class="muted">ARFoundation 기반 제품 시각화 및 상호작용 UI.</div>
+          <div class="tagRow">
+            <span class="tag">ARFoundation</span><span class="tag">Mobile</span><span class="tag">UX</span>
+          </div>
+          <a class="btn" href="#" onclick="alert('여기에 영상/페이지 링크를 넣으세요!'); return false;">보기</a>
+        </div>
+
+        <div class="item proj">
+          <div class="thumb" aria-hidden="true"></div>
+          <b>프로젝트 C (실시간 캐릭터)</b>
+          <div class="muted">캐릭터 셰이딩/애니메이션 파이프라인 구축 및 최적화.</div>
+          <div class="tagRow">
+            <span class="tag">3D</span><span class="tag">Rig</span><span class="tag">LookDev</span>
+          </div>
+          <a class="btn" href="#" onclick="alert('여기에 영상/페이지 링크를 넣으세요!'); return false;">보기</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" class="anchor">
+    <div class="card">
+      <h2 style="margin:0 0 10px;font-size:22px">프로세스</h2>
+      <div class="grid3">
+        <div class="item">
+          <b>1) 요구 정의</b>
+          <div class="muted">목표/타깃/플랫폼/일정/예산 정리</div>
+        </div>
+        <div class="item">
+          <b>2) 설계</b>
+          <div class="muted">씬 구조/기술스택/리스크 관리</div>
+        </div>
+        <div class="item">
+          <b>3) 제작 & 납품</b>
+          <div class="muted">프로토타입 → 구현 → QA → 배포</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="anchor">
+    <div class="card">
+      <h2 style="margin:0 0 10px;font-size:22px">문의</h2>
+      <p class="lead">상단 “메일 보내기” 버튼 또는 아래에서 이메일 복사/템플릿을 사용하세요.</p>
+
+      <div class="contactGrid">
+        <div class="item">
+          <b>이메일</b>
+          <div class="muted" id="emailText" style="margin-top:6px">worksbluestar@email.com</div>
+
+          <div class="ctaRow" style="margin-top:12px">
+            <a class="btn primary" id="mailBtn" href="#">메일 보내기</a>
+            <button class="btn" id="copyBtn" type="button">이메일 복사</button>
+          </div>
+          <div class="mini" id="msg" style="margin-top:10px;"></div>
+        </div>
+
+        <div class="item">
+          <b>문의 템플릿</b>
+          <div class="mini" style="margin-top:8px;">아래 내용을 복사해서 메일로 보내면 상담이 빨라집니다.</div>
+          <textarea readonly style="margin-top:10px">1) 프로젝트 목적:
+2) 플랫폼(PC/모바일/WebGL/XR):
+3) 일정(희망 마감일):
+4) 예산 범위:
+5) 필요한 기능/레퍼런스 링크:
+6) 전달 자료(기획서/리소스/기타):</textarea>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="foot">
+      <div>© <span id="y"></span> BlueStarWorks. All rights reserved.</div>
+      <div class="pill">Built with GitHub Pages</div>
+    </div>
+  </footer>
+</main>
+
+<script>
+  // ✅ 1) 여기 이메일만 바꾸면, 상단 버튼/문의 버튼/복사 기능 전부 자동 적용됨
+  const EMAIL = "worksbluestar@email.com"; // <- 여기에 실제 이메일 입력
+  const SUBJECT = "[BlueStarWorks] 프로젝트 문의";
+  const BODY =
+`1) 프로젝트 목적:
+2) 플랫폼(PC/모바일/WebGL/XR):
+3) 일정(희망 마감일):
+4) 예산 범위:
+5) 필요한 기능/레퍼런스 링크:
+6) 전달 자료(기획서/리소스/기타):`;
+
+  const mailto = `mailto:${EMAIL}?subject=${encodeURIComponent(SUBJECT)}&body=${encodeURIComponent(BODY)}`;
+
+  document.getElementById("emailText").textContent = EMAIL;
+  document.getElementById("mailBtn").setAttribute("href", mailto);
+  document.getElementById("mailTopBtn").setAttribute("href", mailto);
+
+  document.getElementById("y").textContent = new Date().getFullYear();
+
+  const msg = document.getElementById("msg");
+  document.getElementById("copyBtn").addEventListener("click", async () => {
+    try{
+      await navigator.clipboard.writeText(EMAIL);
+      msg.textContent = "✅ 이메일이 복사되었습니다.";
+    }catch(e){
+      msg.textContent = "⚠️ 복사가 막혔어요. 이메일을 길게 눌러 복사하세요.";
+    }
+  });
+</script>
 </body>
-
 </html>
