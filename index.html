@@ -190,14 +190,26 @@
     .lead{color:var(--muted); font-size:16px; line-height:1.75; margin:0 0 16px}
     .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
     .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:12px 14px; border-radius:14px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+
+      height:40px;           /* 버튼 높이 고정 */
+      padding:0 14px;
+
+      border-radius:14px;
       border:1px solid var(--line);
       background: rgba(255,255,255,.04);
+
       color:var(--text);
       font-weight:800;
-      transition: transform .08s ease;
+      font-size:14px;
       cursor:pointer;
+      text-decoration:none;
+    }
+    button.btn{
+      appearance:none;
+      border:none;
     }
     .btn:hover{background:rgba(255,255,255,.07)}
     .btn:active{transform: translateY(1px)}
