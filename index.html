@@ -284,6 +284,32 @@
       background: rgba(255,255,255,.03);
       font-size:12px;
     }
+    .aboutBg{
+  position:relative;
+  min-height:400px;
+  display:flex;
+  align-items:center;
+  background-image:url("assets/company-bg.jpg");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+
+/* 이미지 위에 어두운 오버레이 */
+.aboutBg::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+}
+
+/* 내부 콘텐츠 위로 올리기 */
+.aboutBg .card{
+  position:relative;
+  z-index:1;
+  background:rgba(10,15,25,0.65);
+  backdrop-filter:blur(6px);
+}
 
     /* anchor offset for sticky header */
     .anchor{scroll-margin-top:90px}
@@ -373,7 +399,7 @@
   </section>
 
   <!-- ABOUT -->
-  <section id="about" class="anchor">
+  <section id="about" class="anchor aboutBg">
     <div class="card">
       <h2 style="margin:0 0 10px;font-size:22px">회사 소개</h2>
       <p class="lead">
